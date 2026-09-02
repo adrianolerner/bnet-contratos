@@ -26,7 +26,7 @@ Sistema desenvolvido para controle e gestão eficiente de contratos públicos e 
 
 ### 1. Pré-requisitos
 - Ter o **Docker** e o **Docker Compose** instalados na sua máquina ou servidor.
-- Renomear `.env.example` (se houver) para `.env` e ajustar as credenciais e URL do frontend caso necessário.
+- Renomear `.env.example` para `.env` e ajustar as credenciais de banco, chave e URL do frontend.
 
 ### 2. Rodando o Sistema
 No diretório raiz do projeto, execute o comando:
