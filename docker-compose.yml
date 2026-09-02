@@ -1,0 +1,49 @@
+services:
+  db:
+    image: postgres:15
+    container_name: bnet-contratos-db
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      TZ: America/Sao_Paulo
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  api:
+    build:
+      context: ./src
+      dockerfile: Dockerfile
+    container_name: bnet-contratos-api
+    restart: always
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      SECRET_KEY: ${SECRET_KEY}
+      TZ: America/Sao_Paulo
+      LOG_RETENTION_DAYS: ${LOG_RETENTION_DAYS:-90}
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src:/app
+      - ./backups:/app/backups
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: bnet-contratos-frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+    environment:
+      TZ: America/Sao_Paulo
+
+volumes:
+  pgdata:
