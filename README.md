@@ -2,6 +2,8 @@
 
 Sistema desenvolvido para controle e gestão eficiente de contratos públicos e privados. Ele conta com segmentação por setor, cadastro de fornecedores, pagamentos de notas fiscais, controle de processos e alertas de vencimentos através de um Dashboard inteligente.
 
+<img width="1916" height="945" alt="image" src="https://github.com/user-attachments/assets/9262945c-2022-4a31-a4ce-371193e43a84" />
+
 ## 🚀 Funcionalidades Principais (Versão 1.0)
 - **Dashboard e Alertas:** Visão consolidada de contratos em vigência, próximos do vencimento ou vencidos.
 - **Favoritos e Filtros dinâmicos:** Marcação de itens favoritos e buscas avançadas.
